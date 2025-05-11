@@ -1,6 +1,6 @@
 const authDiv = document.getElementById('auth');
 const userPanel = document.getElementById('userPanel');
-const userNameSpan = document.getElementById('userName'); // Changed from userEmail
+const userNameSpan = document.getElementById('userName');
 const reviewList = document.getElementById('reviewList');
 
 function register() {
@@ -45,7 +45,7 @@ function showUserPanel() {
     authDiv.classList.add('hidden');
     userPanel.classList.remove('hidden');
     const userData = JSON.parse(localStorage.getItem(`user_${email}`));
-    userNameSpan.textContent = userData.firstName; // Show first name instead of email
+    userNameSpan.textContent = userData.firstName;
     displayReviews(userData.reviews);
 }
 
@@ -59,7 +59,6 @@ function displayReviews(reviews) {
     }
 }
 
-// On page load
 if (localStorage.getItem("loggedIn")) {
     showUserPanel();
 }
