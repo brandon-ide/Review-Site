@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <title>Product Review Site</title>
+</head>
+<body>
+<div class="container-fluid">
+<h1>Your ABI Product Reviews <button onclick="logout()">Logout</button></h1>
+
+<div id="auth">
+    <h2>Register</h2>
+    <input type="text" id="regFirstName" placeholder="First Name">
+    <input type="email" id="regEmail" placeholder="Email">
+    <input type="password" id="regPass" placeholder="Password">
+    <button onclick="register()">Register</button>
+
+    <h2>Login</h2>
+    <input type="email" id="loginEmail" placeholder="Email">
+    <input type="password" id="loginPass" placeholder="Password">
+    <button onclick="login()">Login</button>
+</div>
+
+<div id="userPanel" class="hidden">
+    <h2>Welcome, <span id="userName"></span>.
+        Leave a new review or view your previous reviews
+    </h2>
+
+    <h3>Leave a Review</h3>
+    <input type="text" id="product" placeholder="Product"><br>
+    <textarea id="review" placeholder="Your review"></textarea><br>
+    <label>Rating:
+        <select id="rating">
+            <option value="1">1 Star</option>
+            <option value="2">2 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="5">5 Stars</option>
+        </select>
+    </label><br>
+    <button onclick="submitReview()">Submit</button>
+
+    <h3>Your Reviews</h3>
+    <ul id="reviewList"></ul>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
