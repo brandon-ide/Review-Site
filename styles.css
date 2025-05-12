@@ -1,7 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=DM+Serif+Text:ital@0;1&family=Lexend:wght@100..900&display=swap');
+
+body {
+    font-family: 'Lexend', sans-serif;
+    background-image: url(assets/farmland.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #000000;
+    transition: background-color 0.2s, color 0s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.cal-sans-regular {
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 .stars { 
     color: gold; 
 }
 
 .hidden { 
     display: none; 
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    background-color: #0000;
+    opacity: 50%;
+    z-index: 1;
+}
+
+.container {
+    top: 0;
+    left: 0;
+    height: 100dvh;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .25em;
+    color: #ffff;
+    background-color: #548028;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#auth {
+    display: block;
+    text-align: center;
+    color: #ffff;
+    align-content: center;
+    width: 10em;
+    background-color: #548028;
+    margin: 1em;
+    padding: 1em;
+    border: solid #486e22 .25em;
+    border-radius: .5em;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#login {
+    display: block;
+    text-align: center;
+    color: #ffff;
+    align-content: center;
+    width: 10em;
+    background-color: #548028; 
+    margin: 1em;
+    padding: 1em;
+    border: solid #486e22 .25em;
+    border-radius: .5em;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#cardContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 10em;
+}
+
+button {
+    padding: .5em;
+    border-radius: .5em;
+    margin: 1em;
+    font-family: "Cal Sans";
+    border: solid #000000 .15em;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #2b2b2b;
+    color: #ffff;
+    transition: ease .25s;
+}
+
+#userPanel {
+    background-color: #ffff;
 }

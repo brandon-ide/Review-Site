@@ -1,4 +1,5 @@
 const authDiv = document.getElementById('auth');
+const loginDiv = document.getElementById('login');
 const userPanel = document.getElementById('userPanel');
 const userNameSpan = document.getElementById('userName');
 const reviewList = document.getElementById('reviewList');
@@ -43,6 +44,7 @@ function showUserPanel() {
     const email = localStorage.getItem("loggedIn");
     if (!email) return;
     authDiv.classList.add('hidden');
+    loginDiv.classList.add('hidden');
     userPanel.classList.remove('hidden');
     const userData = JSON.parse(localStorage.getItem(`user_${email}`));
     userNameSpan.textContent = userData.firstName;
