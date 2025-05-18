@@ -4,11 +4,11 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: index.html');  // or wherever your login page is
+    header('Location: index.html');
     exit();
 }
 
-require 'login.php'; // your DB credentials
+require 'login.php';
 
 $conn = new mysqli($hostname, $username, $password, $database);
 if ($conn->connect_error) {
@@ -18,7 +18,6 @@ if ($conn->connect_error) {
 $userId = $_SESSION['user_id'];
 $firstName = $_SESSION['first_name'];
 
-// Fetch user reviews
 $stmt = $conn->prepare("SELECT header, review, date, stars FROM reviews WHERE user_id = ?");
 $stmt->bind_param("i", $userId);
 $stmt->execute();

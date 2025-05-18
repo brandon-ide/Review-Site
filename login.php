@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once 'config.php'; // DB connection info
+require_once 'config.php';
 
 $conn = new mysqli('127.0.0.1', $username, $password, $database);
 if ($conn->connect_error) {

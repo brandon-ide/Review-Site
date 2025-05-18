@@ -4,7 +4,6 @@ const userPanelWrapper = document.getElementById('userPanelWrapper');
 const userNameSpan = document.getElementById('userName');
 const reviewList = document.getElementById('reviewList');
 
-// Register form submission handler
 document.addEventListener('DOMContentLoaded', () => {
   const registerForm = document.getElementById('registerForm');
   if (registerForm) {
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = document.getElementById('regEmail').value;
       const password = document.getElementById('regPass').value;
 
-      // Basic email validation
       const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
       if (!emailPattern.test(email)) {
         alert("Please enter a valid email address.");
@@ -43,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Login form submission handler
   const loginForm = document.getElementById('loginForm');
   if (loginForm) {
     loginForm.addEventListener('submit', function(e) {
@@ -60,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(response => response.json())
       .then(result => {
         if (result.success) {
-          showUserPanel(result.firstName);  // make sure your login.php returns firstName
+          showUserPanel(result.firstName);
         } else {
           alert("Invalid login.");
         }
@@ -72,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // On page load, check if user is logged in
   fetch('check_session.php')
   .then(res => res.json())
   .then(result => {
@@ -91,7 +87,7 @@ async function submitReview() {
     const product = document.getElementById('product').value;
     const review = document.getElementById('review').value;
     const rating = parseInt(document.getElementById('rating').value);
-    const date = new Date().toISOString().slice(0, 19).replace('T', ' '); // Format: YYYY-MM-DD HH:MM:SS
+    const date = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
     if (!product || !review || isNaN(rating)) {
         alert("Please fill in all fields before submitting.");
@@ -152,7 +148,6 @@ function displayReviews(reviews) {
     }
 }
 
-// On page load, check if user is logged in
 window.addEventListener('DOMContentLoaded', async () => {
     const response = await fetch('check_session.php');
     const result = await response.json();
