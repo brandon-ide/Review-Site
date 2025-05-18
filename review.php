@@ -30,7 +30,7 @@ if ($conn->connect_error) {
     exit;
 }
 
-$stmt = $conn->prepare("INSERT INTO reviews (user_id, header, review, stars, date) VALUES (?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO reviews (user_id, review_header, review_body, stars, review_date) VALUES (?, ?, ?, ?, ?)");
 $stmt->bind_param("issis", $user_id, $header, $review, $stars, $date);
 
 if ($stmt->execute()) {

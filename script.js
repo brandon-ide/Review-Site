@@ -141,17 +141,9 @@ function displayReviews(reviews) {
     for (const r of reviews) {
         const stars = '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars);
         const li = document.createElement('li');
-        li.innerHTML = `<strong>${r.header}</strong>: ${r.review}<br>
+        li.innerHTML = `<strong>${r.review_header}</strong>: ${r.review_body}<br>
         <span class='stars'>${stars}</span><br>
-        <small>Reviewed on ${r.date}</small>`;
+        <small>Reviewed on ${r.review_date}</small>`;
         reviewList.appendChild(li);
     }
 }
-
-window.addEventListener('DOMContentLoaded', async () => {
-    const response = await fetch('check_session.php');
-    const result = await response.json();
-    if (result.loggedIn) {
-        showUserPanel(result.firstName);
-    }
-});

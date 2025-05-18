@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 
 $userId = $_SESSION['user_id'];
 
-$stmt = $conn->prepare("SELECT header, review, date, stars FROM reviews WHERE user_id = ?");
+$stmt = $conn->prepare("SELECT review_header, review_body, review_date, stars FROM reviews WHERE user_id = ?");
 $stmt->bind_param("i", $userId);
 $stmt->execute();
 $result = $stmt->get_result();
