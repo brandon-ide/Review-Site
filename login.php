@@ -3,13 +3,14 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+header('Content-Type: application/json');
 require_once 'config.php';
 
 $conn = new mysqli('127.0.0.1', $username, $password, $database);
 if ($conn->connect_error) {
     http_response_code(500);
     echo json_encode(['success' => false, 'message' => 'Database connection failed']);
-    exit();
+    exit;
 }
 
 $email = $_POST['email'] ?? '';
@@ -31,15 +32,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION['first_name'] = $firstName;
 
             echo json_encode(['success' => true, 'firstName' => $firstName]);
+            exit;
         } else {
             echo json_encode(['success' => false, 'message' => 'Invalid password']);
+            exit;
         }
     } else {
         echo json_encode(['success' => false, 'message' => 'User not found']);
+        exit;
     }
     $stmt->close();
 } else {
     echo json_encode(['success' => false, 'message' => 'Invalid request method']);
+    exit;
 }
 $conn->close();
-

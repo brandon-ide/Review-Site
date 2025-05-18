@@ -3,16 +3,18 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require 'login.php';
+header('Content-Type: application/json');
+require_once 'config.php';
 
 if (!isset($_SESSION['user_id'])) {
     echo json_encode([]);
-    exit();
+    exit;
 }
 
 $conn = new mysqli($hostname, $username, $password, $database);
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    echo json_encode([]);
+    exit;
 }
 
 $userId = $_SESSION['user_id'];
@@ -28,4 +30,5 @@ while ($row = $result->fetch_assoc()) {
 }
 
 echo json_encode($reviews);
+$stmt->close();
 $conn->close();

@@ -3,6 +3,8 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+header('Content-Type: application/json');
+
 if (isset($_SESSION['user_id']) && isset($_SESSION['first_name'])) {
     echo json_encode([
         'loggedIn' => true,
