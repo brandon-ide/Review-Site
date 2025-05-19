@@ -84,9 +84,13 @@ async function logout() {
 }
 
 async function submitReview() {
-    const product = document.getElementById('product').value;
-    const review = document.getElementById('review').value;
-    const rating = parseInt(document.getElementById('rating').value);
+    const productInput = document.getElementById('product');
+    const reviewInput = document.getElementById('review');
+    const ratingInput = document.getElementById('rating');
+
+    const product = productInput.value;
+    const review = reviewInput.value;
+    const rating = parseInt(ratingInput.value);
     const date = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
     if (!product || !review || isNaN(rating)) {
@@ -109,6 +113,9 @@ async function submitReview() {
     if (result.success) {
         alert("Review submitted successfully!");
         loadReviews();
+        productInput.value = '';
+        reviewInput.value = '';
+        ratingInput.value = '1';
     } else {
         alert("Error: " + result.message);
     }
