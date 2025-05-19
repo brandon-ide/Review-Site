@@ -48,7 +48,7 @@ html, body {
 .container {
     position: relative;
     padding-top: 3.5em;
-    padding-top: 6em; /* match your header height */
+    padding-top: 6em;
     color: white;
 }
 
